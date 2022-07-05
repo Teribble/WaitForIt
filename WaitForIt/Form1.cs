@@ -44,7 +44,10 @@ namespace WaitForIt
         private void OnButton1Click(object sender, EventArgs e)
         {
             gameMusic.Stop();
-            victoryMusic.Play();
+            if (!victoryMusic.IsLoadCompleted)
+            {
+                victoryMusic.Play();
+            }
             pictureBox5.Visible = true;
             textBox1.Clear();
             MessageBox.Show("Ты выйграл", "Победа", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -95,7 +98,10 @@ namespace WaitForIt
             button1.Visible = true;
             OnButton1MouseMove(null, null);
             button2.Visible = false;
-            gameMusic.PlayLooping();
+            if (!gameMusic.IsLoadCompleted)
+            {
+                gameMusic.PlayLooping();
+            } 
         }
     }
 }
