@@ -7,8 +7,17 @@ namespace WaitForIt
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Ответ на загадку
+        /// </summary>
         private string str = "Ну, Погоди!";
+        /// <summary>
+        /// Основная музыка
+        /// </summary>
         SoundPlayer gameMusic = new SoundPlayer(@"C:\VisualStudio\WaitForIt\WaitForIt\Music\music.wav");
+        /// <summary>
+        /// Звук выйгрыша
+        /// </summary>
         SoundPlayer victoryMusic = new SoundPlayer(@"C:\VisualStudio\WaitForIt\WaitForIt\Music\vic.wav");
         public Form1()
         {
@@ -20,13 +29,17 @@ namespace WaitForIt
             pictureBox5.Visible = false;
             button1.Visible = false;
         }
-
+        /// <summary>
+        /// Действия, пока курсор двигается на Panel1
+        /// </summary>
         private void OnPanel1MouseMove(object sender, MouseEventArgs e)
         {
             label3.Text = e.X.ToString();
             label4.Text = e.Y.ToString();
         }
-
+        /// <summary>
+        /// Действия, в случае, когда курсор покинул Panel1
+        /// </summary>
         private void OnPanel1MouseLeave(object sender, EventArgs e)
         {
             pictureBox1.Visible = true;
@@ -35,12 +48,16 @@ namespace WaitForIt
             label6.Visible = true;
             textBox1.Visible = true;
         }
-
+        /// <summary>
+        /// Действия в случае, когда курсор входит в видимую область TextBox1
+        /// </summary>
         private void OnTextBox1MouseEnter(object sender, EventArgs e)
         {
             textBox1.Clear();
         }
-
+        /// <summary>
+        /// Действия, при нажатии на Button1
+        /// </summary>
         private void OnButton1Click(object sender, EventArgs e)
         {
             gameMusic.Stop();
@@ -55,7 +72,9 @@ namespace WaitForIt
             button2.Visible = true;
             button1.Visible = false; 
         }
-
+        /// <summary>
+        /// Действия, при наведении курсора мыши на Button1
+        /// </summary>
         private void OnButton1MouseMove(object sender, MouseEventArgs e)
         {
             pictureBox1.Visible = false;
@@ -92,7 +111,11 @@ namespace WaitForIt
                 button1.Location = new System.Drawing.Point(width, height);
             }
         }
-
+        /// <summary>
+        /// Действия, при клики мыши на Button2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             button1.Visible = true;
