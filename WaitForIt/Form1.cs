@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -7,6 +8,8 @@ namespace WaitForIt
     public partial class Form1 : Form
     {
         private string str = "Ну, Погоди!";
+        SoundPlayer gameMusic = new SoundPlayer(@"C:\VisualStudio\WaitForIt\WaitForIt\Music\music.wav");
+        SoundPlayer victoryMusic = new SoundPlayer(@"C:\VisualStudio\WaitForIt\WaitForIt\Music\vic.wav");
         public Form1()
         {
             InitializeComponent();
@@ -40,12 +43,14 @@ namespace WaitForIt
 
         private void OnButton1Click(object sender, EventArgs e)
         {
+            gameMusic.Stop();
+            victoryMusic.Play();
             pictureBox5.Visible = true;
             textBox1.Clear();
             MessageBox.Show("Ты выйграл", "Победа", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             pictureBox5.Visible = false;
             button2.Visible = true;
-            button1.Visible = false;
+            button1.Visible = false; 
         }
 
         private void OnButton1MouseMove(object sender, MouseEventArgs e)
@@ -90,6 +95,7 @@ namespace WaitForIt
             button1.Visible = true;
             OnButton1MouseMove(null, null);
             button2.Visible = false;
+            gameMusic.PlayLooping();
         }
     }
 }
