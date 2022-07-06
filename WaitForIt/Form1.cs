@@ -14,11 +14,11 @@ namespace WaitForIt
         /// <summary>
         /// Основная музыка
         /// </summary>
-        SoundPlayer gameMusic = new SoundPlayer(@"Music\music.wav");
+        SoundPlayer gameMusic = new SoundPlayer(@"..\..\Music\music.wav");
         /// <summary>
         /// Звук выйгрыша
         /// </summary>
-        SoundPlayer victoryMusic = new SoundPlayer(@"Music\vic.wav");
+        SoundPlayer victoryMusic = new SoundPlayer(@"..\..\Music\vic.wav");
         public Form1()
         {
             InitializeComponent();
